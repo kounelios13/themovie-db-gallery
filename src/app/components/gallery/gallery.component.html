@@ -27,7 +27,9 @@
             <p class="text-gray-500">Popularity: {{ movie.popularity }}</p>
         </div>
         <div class="p-4">
-            <button class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" disabled>Play</button>
+            <button
+            (click)="toDetails(movie.id)"
+            class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Play</button>
             <!-- <button (click)="addToFavorites(movie)" class="w-full mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Favorites</button> -->
         </div>
     </div>

@@ -14,6 +14,11 @@ export const routes: Routes = [
         canActivate: [authGuard]
     },
     {
+        path: 'video/:id',
+        loadComponent: () => import('./components/video-details/video-details.component').then(m => m.VideoDetailsComponent),
+        canActivate: [authGuard]
+    },
+    {
         path: 'token',
         loadComponent: () => import('./components/token-page/token-page.component').then(m => m.TokenPageComponent),
         

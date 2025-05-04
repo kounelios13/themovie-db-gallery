@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MoviedbService } from '../../services/moviedb.service';
 import { MovieSearchResponse, Result } from '../../models/movie-search-response';
 import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -13,6 +14,7 @@ import { NgFor } from '@angular/common';
 export class GalleryComponent {
   private fb = inject(FormBuilder);
   private movieSrv = inject(MoviedbService)
+  private router = inject(Router);
   form = this.fb.group({
     movie: ['', Validators.required],
   });
@@ -33,6 +35,17 @@ export class GalleryComponent {
       });
     }, (error : Error) => {
       console.error(error);
+    });
+  }
+
+  toDetails(id : number) {
+    console.log(id);
+    // Navigate to the details page with the movie ID
+    this.router.navigate(['/video', id] , {
+
+    
+        
+      
     });
   }
 }
