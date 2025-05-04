@@ -43,7 +43,9 @@ export class GalleryComponent {
     // Navigate to the details page with the movie ID
     this.router.navigate(['/video', id] , {
 
-    
+      state: {
+        title: this.movies.find((movie) => movie.id === id)?.title,
+      }
         
       
     });
