@@ -1,0 +1,7 @@
+<div class="flex items-center justify-center h-screen flex-col bg-gray-100" [formGroup]="form">
+    <h1 class="text-5xl mb-4">Store TMDB API token</h1>
+    <input type="text" placeholder="Enter your token" class="text-4xl mb-4 p-2 border border-gray-300 rounded"
+      formControlName="token">
+    <button class="bg-blue-500 text-white text-2xl px-6 py-2 rounded hover:bg-blue-600" [class.opacity-50]="form.invalid"
+      [disabled]="form.invalid" (click)="save()">Save as</button>
+  </div>

@@ -1,0 +1,34 @@
+<form [formGroup]="form" class="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-md">
+    <input 
+        type="text" 
+        formControlName="movie" 
+        placeholder="Search for a movie title..." 
+        class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-gray-700"
+    />
+    <button 
+        type="submit" 
+        class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-2 rounded-lg hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-md"
+        (click)="searchMovie()"
+        >
+        🔍 Search
+    </button>
+</form>
+
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4 p-4 bg-gray-100">
+    <div *ngFor="let movie of movies" class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+        <img [src]="movie.poster_path" alt="{{ movie.title }}" class="w-full h-64 object-cover">
+        <div class="p-4 flex-grow">
+            <h2 class="text-xl font-semibold">{{ movie.title }}</h2>
+            <p class="text-gray-600">{{ movie.overview }}</p>
+            <p class="text-gray-500">Release Date: {{ movie.release_date }}</p>
+            <p class="text-gray-500">Rating: {{ movie.vote_average }}</p>
+            <p class="text-gray-500">Popularity: {{ movie.popularity }}</p>
+        </div>
+        <div class="p-4">
+            <button class="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" disabled>Play</button>
+            <!-- <button (click)="addToFavorites(movie)" class="w-full mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Favorites</button> -->
+        </div>
+    </div>
+</div>
